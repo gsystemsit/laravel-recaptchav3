@@ -1,17 +1,17 @@
 <?php
 /**
- * Created by Josias Montag
- * Date: 10/30/18 11:52 AM
- * Mail: josias@montag.info
+ * Created by G-Systems
+ * Date: 2024-08-02 11:52 AM
+ * Mail: gsystems.it
  */
 
 
-namespace Lunaweb\RecaptchaV3\Tests\Integration;
+namespace GSystems\RecaptchaV3\Tests\Integration;
 
 
 
-use Lunaweb\RecaptchaV3\Facades\RecaptchaV3;
-use Lunaweb\RecaptchaV3\Tests\TestCase;
+use GSystems\RecaptchaV3\Facades\RecaptchaV3;
+use GSystems\RecaptchaV3\Tests\TestCase;
 
 
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * Created by Josias Montag
- * Date: 10/30/18 11:09 AM
- * Mail: josias@montag.info
+ * Created by G-Systems
+ * Date: 2024-08-02 11:09 AM
+ * Mail: gsystems.it
  */
 
-namespace Lunaweb\RecaptchaV3\Tests;
+namespace GSystems\RecaptchaV3\Tests;
 
-use Lunaweb\RecaptchaV3\Providers\RecaptchaV3ServiceProvider;
+use GSystems\RecaptchaV3\Providers\RecaptchaV3ServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Mockery;
 use GuzzleHttp\Psr7\Response;

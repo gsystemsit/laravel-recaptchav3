@@ -27,7 +27,7 @@ RECAPTCHAV3_SECRET=secret
 
 Optionally, you can publish the config file:
 ```
-php artisan vendor:publish --provider="Lunaweb\RecaptchaV3\Providers\RecaptchaV3ServiceProvider"
+php artisan vendor:publish --provider="GSystems\RecaptchaV3\Providers\RecaptchaV3ServiceProvider"
 ```
 
 ## Usage
@@ -69,7 +69,7 @@ Alternatively, you can get the score and take variable action:
 
 ```php
 // Import the facade class
-use Lunaweb\RecaptchaV3\Facades\RecaptchaV3;
+use GSystems\RecaptchaV3\Facades\RecaptchaV3;
 //  RecaptchaV3::verify($token, $action)
 $score = RecaptchaV3::verify($request->get('g-recaptcha-response'), 'register')
 if($score > 0.7) {

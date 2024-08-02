@@ -1,15 +1,15 @@
 <?php
 /**
- * Created by Josias Montag
- * Date: 10/30/18 11:04 AM
- * Mail: josias@montag.info
+ * Created by G-Systems
+ * Date: 2024-08-02 11:04 AM
+ * Mail: gsystems.it
  */
 
-namespace Lunaweb\RecaptchaV3\Providers;
+namespace GSystems\RecaptchaV3\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Lunaweb\RecaptchaV3\RecaptchaV3;
-use Lunaweb\RecaptchaV3\Facades\RecaptchaV3 as RecaptchaV3Facade;
+use GSystems\RecaptchaV3\RecaptchaV3;
+use GSystems\RecaptchaV3\Facades\RecaptchaV3 as RecaptchaV3Facade;
 
 class RecaptchaV3ServiceProvider extends ServiceProvider
 {

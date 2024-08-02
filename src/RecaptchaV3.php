@@ -1,11 +1,11 @@
 <?php
 /**
- * Created by Josias Montag
- * Date: 10/30/18 11:04 AM
- * Mail: josias@montag.info
+ * Created by G-Systems
+ * Date: 2024-08-02 11:04 AM
+ * Mail: gsystems.it
  */
 
-namespace Lunaweb\RecaptchaV3;
+namespace GSystems\RecaptchaV3;
 
 
 use GuzzleHttp\Client;

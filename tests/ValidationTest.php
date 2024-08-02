@@ -1,14 +1,14 @@
 <?php
 /**
- * Created by Josias Montag
- * Date: 10/30/18 12:58 PM
- * Mail: josias@montag.info
+ * Created by G-Systems
+ * Date: 2024-08-02 12:58 PM
+ * Mail: gsystems.it
  */
 
-namespace Lunaweb\RecaptchaV3\Tests;
+namespace GSystems\RecaptchaV3\Tests;
 
 
-use Lunaweb\RecaptchaV3\Facades\RecaptchaV3;
+use GSystems\RecaptchaV3\Facades\RecaptchaV3;
 
 class ValidationTest extends TestCase
 {

@@ -11,8 +11,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Josias Montag",
-            "email": "josias@montag.info"
+            "name": "G-Systems",
+            "email": "web@gsystems.it"
         }
     ],
     "require": {
@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Lunaweb\\RecaptchaV3\\": "src"
+            "GSystems\\RecaptchaV3\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Lunaweb\\RecaptchaV3\\Tests\\": "tests"
+            "GSystems\\RecaptchaV3\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,10 +43,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Lunaweb\\RecaptchaV3\\Providers\\RecaptchaV3ServiceProvider"
+                "GSystems\\RecaptchaV3\\Providers\\RecaptchaV3ServiceProvider"
             ],
             "aliases": {
-                "RecaptchaV3": "Lunaweb\\RecaptchaV3\\Facades\\RecaptchaV3"
+                "RecaptchaV3": "GSystems\\RecaptchaV3\\Facades\\RecaptchaV3"
             }
         }
     }
