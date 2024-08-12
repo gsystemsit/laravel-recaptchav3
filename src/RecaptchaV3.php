@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by G-Systems
- * Date: 2024-08-02 11:04 AM
- * Mail: gsystems.it
- */
-
 namespace GSystems\RecaptchaV3;
-
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -15,39 +8,13 @@ use Illuminate\Contracts\Foundation\Application;
 
 class RecaptchaV3
 {
-
-    /**
-     * @var string
-     */
     protected $secret;
-    /**
-     * @var string
-     */
     protected $sitekey;
-    /**
-     * @var string
-     */
     protected $origin;
-    /**
-     * @var string
-     */
     protected $locale;
-    /**
-     * @var \GuzzleHttp\Client
-     */
     protected $http;
-
-    /**
-     * @var \Illuminate\Http\Request
-     */
     protected $request;
 
-    /**
-     * RecaptchaV3 constructor.
-     *
-     * @param $secret
-     * @param $sitekey
-     */
     public function __construct(Repository $config, Client $client, Request $request, Application $app)
     {
         $this->secret = $config['recaptchav3']['secret'];
@@ -58,25 +25,15 @@ class RecaptchaV3
         $this->request = $request;
     }
 
-
-    /*
-     * Verify the given token and retutn the score.
-     * Returns false if token is invalid.
-     * Returns the score if the token is valid.
-     *
-     * @param $token
-     */
     public function verify($token, $action = null)
     {
-
-        $response = $this->http->request('POST', $this->origin . '/api/siteverify', [
+        $response = $this->http->request('POST', $this->origin . '/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret'   => $this->secret,
                 'response' => $token,
                 'remoteip' => $this->request->getClientIp(),
             ],
         ]);
-
 
         $body = json_decode($response->getBody(), true);
 
@@ -88,47 +45,34 @@ class RecaptchaV3
             return false;
         }
 
-
-        return isset($body['score']) ? $body['score'] : false;
-
+        return $body['score'] ?? false;
     }
 
-
-    /**
-     * @return string
-     */
     public function sitekey()
     {
         return $this->sitekey;
     }
 
-    /**
-     * @return string
-     */
     public function initJs()
     {
-        return '<script src="' . $this->origin . '/api.js?hl=' . $this->locale . '&render=' . $this->sitekey . '" defer></script>';
+        return '<script src="' . $this->origin . '/recaptcha/api.js?hl=' . $this->locale . '&render=' . $this->sitekey . '" async defer></script>';
     }
 
-
-    /**
-     * @param $action
-     */
     public function field($action, $name = 'g-recaptcha-response')
     {
         $fieldId = uniqid($name . '-', false);
         $html = '<input type="hidden" name="' . $name . '" id="' . $fieldId . '">';
         $html .= "<script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            grecaptcha.ready(function() {
-                grecaptcha.execute('" . $this->sitekey . "', {action: '" . $action . "'}).then(function(token) {
-                    document.getElementById('" . $fieldId . "').value = token;
-                });
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('" . $this->sitekey . "', {action: '" . $action . "'}).then(function(token) {
+                            document.getElementById('" . $fieldId . "').value = token;
+                        });
+                    });
+                }
             });
-        });
-    </script>";
+        </script>";
         return $html;
     }
-
-
 }
